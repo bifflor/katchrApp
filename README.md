@@ -13,3 +13,6 @@ the katchrApp.sln is a Visual Studio 2022 solution file.
 # Folders containing default scaffolding code
 - Pages
 - wwwroot
+
+# Screenshots
+Contains 3 images showing the outputs of the solution.

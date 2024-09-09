@@ -1,0 +1,80 @@
+﻿@page
+
+<div>
+  <h1 class="display-4">Output @ViewBag.DataSet</h1>
+
+  @Html.ActionLink("Home", "Index", "Index")
+  @Html.ActionLink("Input 1", "GetBasket", "Index", new { basket = 1 })
+  @Html.ActionLink("Input 2", "GetBasket", "Index", new { basket = 2 })
+  @Html.ActionLink("Input 3", "GetBasket", "Index", new { basket = 3 })
+
+  <hr />
+
+  <table>
+    @{
+      for (int index = 0; index < ViewBag.Receipt.Count; index++)
+      {
+        <tr>
+          <td>@ViewBag.Receipt[index].Quantity
+            @if (@ViewBag.Receipt[index].Origin == "Foreign")
+            {
+              <span> imported </span>
+            }
+            @ViewBag.Receipt[index].Description: @ViewBag.Receipt[index].Total
+          </td>
+        </tr>
+      }
+      <tr>
+        <td>Sales Taxes: @ViewBag.TotalTax</td>
+      </tr>
+      <tr>
+        <td>Total: @ViewBag.TotalCost</td>
+      </tr>
+    }
+  </table>
+
+  @*
+  <table>
+  <thead>
+  <tr>
+  <th>Item</th>
+  <th>Quantity</th>
+  <th>Classification</th>
+  <th>Origin</th>
+  <th>Cost</th>
+  <th>Basic Tax</th>
+  <th>Import Duty</th>
+  <th>Total Cost </th>
+  <th>Sales Tax</th>
+  </tr>
+  </thead>
+  @{
+  for (int index = 0; index < ViewBag.Receipt.Count; index++)
+  {
+  <tr>
+  <td>@ViewBag.Receipt[index].Item</td>
+  <td>@ViewBag.Receipt[index].Quantity</td>
+  <td>@ViewBag.Receipt[index].Classification</td>
+  <td>@ViewBag.Receipt[index].Origin</td>
+  <td>@ViewBag.Receipt[index].Cost</td>
+  <td>@ViewBag.Receipt[index].BasicTax</td>
+  <td>@ViewBag.Receipt[index].ImportDuty</td>
+  <td>@ViewBag.Receipt[index].Total</td>
+  <td>@ViewBag.Receipt[index].SalesTax</td>
+  </tr>
+  }
+  <tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td>@ViewBag.TotalCost</td>
+  <td>@ViewBag.TotalTax</td>
+  </tr>
+  }
+  </table>
+  *@
+</div>

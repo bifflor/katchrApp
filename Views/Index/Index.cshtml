@@ -1,0 +1,30 @@
+﻿@page
+@*@model katchrApp.Models.Receipt*@
+
+<div>
+  <h1 class="display-4">Output @ViewBag.DataSet</h1>
+
+  @Html.ActionLink("Home", "Index", "Index")
+  @Html.ActionLink("Input 1", "GetBasket", "Index", new { basket = 1 })
+  @Html.ActionLink("Input 2", "GetBasket", "Index", new { basket = 2 })
+  @Html.ActionLink("Input 3", "GetBasket", "Index", new { basket = 3 })
+
+  <hr>
+
+  <table>
+    @{
+      for (int index = 0; index < ViewBag.Receipt.Count; index++)
+      {
+        <tr>
+          <td>@ViewBag.Receipt[index].Quantity @ViewBag.Receipt[index].Description: @ViewBag.Receipt[index].Total</td>
+        </tr>
+      }
+      <tr>
+        <td>Sales Taxes: @ViewBag.TotalTax</td>
+      </tr>
+      <tr>
+        <td>Total: @ViewBag.TotalCost</td>
+      </tr>
+    }
+  </table>
+</div>
